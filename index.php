@@ -3,7 +3,6 @@
 * This file is part of PeoplePods
 * (c) xoxco, inc  
 * http://peoplepods.net http://xoxco.com
-*
 * /index.php
 * This file just redirects to the admin or install tools
 /**********************************************/
