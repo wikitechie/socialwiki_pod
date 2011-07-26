@@ -215,7 +215,15 @@
 			echo results($data);
 			break;
 
-
+		case 'content.listComments':
+			requireAuthentication($POD);
+			$data['comments'] 	= $content->comments()->asArray();
+			$data['count']		= $content->count();
+			$POD->startBuffer();
+			$content->comments()->output('comment');
+			$data['html']		= $POD->endBuffer();
+			echo results($data);
+			break;
 /* People methods ****************************************************************************/
 
 		case 'person.toggleFlag':
