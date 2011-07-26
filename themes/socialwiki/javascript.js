@@ -82,7 +82,41 @@
 				
 		});
 
-
+		$('a[href="#listComments"]').live('click',function(){
+			var active = $(this).attr('data-active');
+			var comments_div = $(this).attr('data-comments');
+			var content = $(this).attr('data-content');
+			if (active=='hidden')
+			{
+				var command = '';
+				command = '/content.listComments?content='+encodeURIComponent(content);
+				(
+					function (el,content,comments_div)
+					{
+						$.getJSON(API+command,function(json) {
+							if (json.error) {
+									complain(json.error);
+								} else {
+									$(comments_div).html(json.html);
+								}
+						})
+					}
+				)
+				(this,content,comments_div)
+				$(this).attr('data-active','shown');
+				$(this).html("Hide comments");
+				$("#comments_area"+content).show();
+			}
+			else
+			{
+				$(this).attr('data-active','hidden');
+				$(this).html("Show comments");
+				$("#comments_area"+content).hide();
+				
+			}
+			return false;
+			
+		});
 		$('a[href="#deleteComment"]').live('click',function() { 
 		
 			if (confirm('Delete this comment forever?')) {		
