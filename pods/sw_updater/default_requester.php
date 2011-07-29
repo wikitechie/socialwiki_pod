@@ -5,8 +5,7 @@ include_once("../../lib/Core.php");
 
 // only allow logged in people
 $POD = new PeoplePod(array(
- 'authSecret'=>$authSecret,
-  'lockdown'=>'login'
+ 'authSecret'=>$authSecret
 ));
 
 	if (defined('WIKI_USERNAME')) 

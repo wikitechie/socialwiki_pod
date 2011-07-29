@@ -13,8 +13,7 @@ $authSecret=md5('admin@wikitechie.netwikikids');
 
 // only allow logged in people
 $POD = new PeoplePod(array(
-	'authSecret'=>$_COOKIE['pp_auth'],
-  'lockdown'=>'login'
+	'authSecret'=>$_COOKIE['pp_auth']
 ));
 
 $POD->header();
