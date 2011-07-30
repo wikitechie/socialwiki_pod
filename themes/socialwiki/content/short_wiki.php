@@ -45,7 +45,7 @@
 					<? } else if ($doc->get('privacy')=="owner_only") { ?>
 						<li class="owner_only_option">Only you can see this.</li>
 					<? } ?>
-
+						<li>last update :&nbsp;<? $doc->write('rcstart'); ?></li>
 				</ul>
 		</article>
 		<div class="clearer"></div>
