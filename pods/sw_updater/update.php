@@ -1,7 +1,7 @@
 <?php
 
 include_once("../../lib/Core.php");
-$authSecret=md5('admin@wikitechie.netwikikids');
+
 // some useful functions :)
 	function inc_time_str($base,$format="Y-m-d H:i:s")
 	{
@@ -12,14 +12,11 @@ $authSecret=md5('admin@wikitechie.netwikikids');
 	}
 
 // only allow logged in people
-$POD = new PeoplePod(array(
-	'authSecret'=>$_COOKIE['pp_auth']
-));
+$POD = new PeoplePod();
 
 $POD->header();
 		define('WIKI_USERNAME','');
 		define('WIKI_PASSWORD','');
-
 		
 		$wikis = $POD->getContents(array(
 			'type'=>'wiki'

@@ -4,19 +4,12 @@
 include_once("../../lib/Core.php");
 
 // only allow logged in people
-$POD = new PeoplePod(array(
- 'authSecret'=>$authSecret
-));
+$POD = new PeoplePod();
 
 	if (defined('WIKI_USERNAME')) 
 	{
 		
 		include_once('wikimate/globals.php');
-
-			//define('WIKI_USERNAME','');
-			//define('WIKI_PASSWORD','');
-			//define('WIKI_API',$wiki->get('api'));
-			//these are predefined by the file updater
 		if (isset($requester)) unset($requester);
 		$requester = new Wikimate;
 		$data = array(
@@ -31,12 +24,7 @@ $POD = new PeoplePod(array(
 		if($results && (count($results)>0) && ($changes_count>0) ) 
 		{
 			foreach ($results['query']['recentchanges'] as $recentchange) 
-			{	
-				echo "<pre>";
-				print_r($recentchange);
-				echo "</pre>";
-				echo "<br>";
-				
+			{					
 				//first we check if the user is registered in our website
 				$username = $recentchange['user'];				
 				$sql = "SELECT value, userId from flags WHERE itemId=".$wiki->get('id')." AND name='mywiki' AND value='".mysql_real_escape_string($username)."';";	
@@ -60,16 +48,11 @@ $POD = new PeoplePod(array(
 							$new_activity->body = $recentchange['comment'];
 							$new_activity->addMeta('rcid',$recentchange['rcid']);
 							$new_activity->addMeta('edit_type',$recentchange['type']);
-							$new_activity->addMeta('wikiId',$wiki->get('id'));
-							
-							//creating date..
-							echo "<br>this: ".$recentchange['timestamp']."<br>";
-							echo "<br>last: ".$wiki->get('rcstart')."<br>";
-							
+							$new_activity->addMeta('wikiId',$wiki->get('id'));										
 							$recentchange['timestamp']= str_replace('T',' ',$recentchange['timestamp']);
 							$recentchange['timestamp'] = str_replace('Z','',$recentchange['timestamp']);							
-							//$new_activity->changeDate = $new_activity->editDate = $recentchange['timestamp'];
-							$new_activity->save();		
+							$new_activity->save();
+							
 					}
 				}
 			}		
@@ -79,8 +62,9 @@ $POD = new PeoplePod(array(
 			$wiki->save();
 		}		
 		else
-		{
-			echo "no changes";
+		{	echo "<b>";
+			$wiki->write('headline');
+			echo "</b>: no changes<br>";
 		}
 	}	
 ?>
