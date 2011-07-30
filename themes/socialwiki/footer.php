@@ -22,7 +22,7 @@
 		</div>
 		<div class="column_4">
 			<div class="pink" style="text-align: center;">
-				Powered by <a href="http://peoplepods.net" title="PeoplePods">PeoplePods</a>
+				Powered by <a href="http://peoplepods.net" title="PeoplePods">PeoplePods</a> and <a href="https://github.com/wikitechie/SocialWiki/" title="SocialWiki">SocialWiki</a>
 			</div>
 		</div>
 		<div class="column_4">
