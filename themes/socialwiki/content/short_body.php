@@ -93,6 +93,4 @@
 				</div>
 
 		</article>
-		<div class="amjad">Hello!</div>
-
 
