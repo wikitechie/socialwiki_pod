@@ -55,7 +55,7 @@
 		</p>
 		
 		<input type="hidden" name="meta_rcstart" value="" />
-
+		<input type="hidden" name="meta_last_rcid" value="" />
 		
 		<p class="post" id="post_body">
 			<label for="body">Discription:</label>
