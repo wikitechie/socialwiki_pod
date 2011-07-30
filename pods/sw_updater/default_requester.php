@@ -46,12 +46,12 @@ $POD = new PeoplePod();
 							$new_activity->type = 'wikiactivity';
 							$new_activity->userId = $userId;
 							$new_activity->body = $recentchange['comment'];
-							$new_activity->addMeta('rcid',$recentchange['rcid']);
-							$new_activity->addMeta('edit_type',$recentchange['type']);
-							$new_activity->addMeta('wikiId',$wiki->get('id'));										
+							$new_activity->save(); // save the content to be able to add meta fields
 							$recentchange['timestamp']= str_replace('T',' ',$recentchange['timestamp']);
 							$recentchange['timestamp'] = str_replace('Z','',$recentchange['timestamp']);							
-							$new_activity->save();
+							$new_activity->addMeta('rcid',$recentchange['rcid']);
+							$new_activity->addMeta('edit_type',$recentchange['type']);
+							$new_activity->addMeta('wikiId',$wiki->get('id'));
 							
 					}
 				}
