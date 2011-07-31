@@ -16,20 +16,35 @@
 	<div class="contentPadding">
 		
 		<h1>My Account</h1>
-		
+		<hr noshade />
 		<? if ($user->get('verificationKey') != '') { ?>
 			<div class="info">
 				Your e-mail address is still unverified.  <a href="<? $POD->siteRoot(); ?>/verify">Click here</a> to verify yourself!
 			</div>
 		<? } // if unverified ?>
 		
-		<form id="edit_profile" method="post" action="<? $POD->siteRoot(); ?>/editprofile"  class="valid" enctype="multipart/form-data">
+		<form id="edit_profile" method="post" action="<? $POD->siteRoot(); ?>/editprofile" class="valid">
+			<h2>Change Email:</h2>
+			<p class="input"><label for="password">Current Pass:</label><input name="curpassword" id="curpassword" type="password" class="text" /></p>
+			<p class="input"><label for="email">My Email:</label><input class="required email text" name="email" id="email" value="<? $user->htmlspecialwrite('email'); ?>"></p>		
+			<p class="input"><label>&nbsp;</label><input class="button" type="submit" value="Set New Email" /></p>
+		</form>
+		<hr noshade />
 		
+		<form id="change_password" method="post" action="<? $POD->siteRoot(); ?>/editprofile" class="valid">
+			<h2>Change Password:</h2>
+			<p class="input"><label for="password">Current Pass:</label><input name="oldpassword" id="oldpassword" type="password" class="text" /></p>
+			<p class="input"><label for="password">New Pass:</label><input name="newpassword" id="newpassword" type="password" class="text" /></p>
+			<p class="input"><label for="password">Confirm:</label><input name="conpassword" id="conpassword" type="password" class="text" /></p>
+			<p class="input"><label>&nbsp;</label><input class="button" type="submit" value="Set New Password" /></p>	
+		</form>
+		<hr noshade />
+		
+		
+		<form id="edit_profile" method="post" action="<? $POD->siteRoot(); ?>/editprofile"  class="valid" enctype="multipart/form-data">
+			<h2>Change Info:</h2>
 			<p class="input"><label for="nick">My Username:</label>
 			<input class="required text"  maxlength="20" name="nick" id="nick" value="<? $user->htmlspecialwrite('nick'); ?>"></p>	
-
-			<p class="input"><label for="email">My Email:</label>
-			<input class="required email text" name="email" id="email" value="<? $user->htmlspecialwrite('email'); ?>"></p>
 	
 			<p class="input"><label for="photo">My Picture:</label>
 			<input name="img" type="file" id="img">
@@ -62,19 +77,13 @@
 
 			<!-- end meta fields -->		
 		
-			<p class="input"><label>&nbsp;</label><input type="submit" class="button" value="Update my account" /></p>
+			<p class="input"><label>&nbsp;</label><input name="account" type="submit" class="button" value="Update my account" /></p>
+			
 		</form>
 		
-
 		<hr noshade />
-
-		<form id="change_password" method="post" action="<? $POD->siteRoot(); ?>/editprofile" class="valid">
-
-			<h3>Change My Password</h3>
+		<h2><a href='http://wikitechie.net/socialwiki/wikiman'>My Wikis</a></h2>
+			<label for="homepage">This is a simple link, we could transfer whole that page to here :)</label>
+		<hr noshade />
 		
-			<p class="input"><label for="password">New Pass:</label><input name="password" id="password" type="password" class="text required" /></p>
-		
-			<p class="input"><label>&nbsp;</label><input class="button" type="submit" value="Set New Password" /></p>	
-	
-		</form>
 	</div>

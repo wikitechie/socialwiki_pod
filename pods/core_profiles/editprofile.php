@@ -20,9 +20,9 @@
 
 
 
-	if (@$_POST['email']!='') {
+	if (@$_POST['account']!='') {
 			$POD->currentUser()->set('nick',$_POST['nick']);
-			$POD->currentUser()->set('email',$_POST['email']);
+			//$POD->currentUser()->set('email',$_POST['email']);
 			$POD->currentUser()->save();
 			if (!$POD->currentUser()->success()) {
 				$POD->addMessage($POD->currentUser()->error());
@@ -94,21 +94,44 @@
 			$days = 15;			
 			setcookie('pp_auth',$POD->currentUser()->get('authSecret'),time()+(86400 * $days),"/");
 	}
-		
-	if (@$_POST['password']!='') {
-		
-			$POD->currentUser()->set('password',$_POST['password']);
+	
+	if (@$_POST['email']!='') {
+		if ($POD->currentUser()->get('authSecret') != md5($POD->currentUser()->get('email').@$_POST['curpassword'])){
+			$POD->addMessage("Your Current Pass is wrong.");
+		} else {
+			$POD->currentUser()->set('email',$_POST['email']);
+			$POD->currentUser()->set('password',$_POST['curpassword']);
 			$POD->currentUser()->save();
-			
 			if (!$POD->currentUser()->success()) {
 				$POD->addMessage($POD->currentUser()->error());
 			} else {
-				$POD->addMessage("Your password has been changed.");
+				$POD->addMessage("Your email has been changed.");
 			}
-
 			$days = 15;			
 			setcookie('pp_auth',$POD->currentUser()->get('authSecret'),time()+(86400 * $days),"/");
+		}
+	}
 		
+	if (@$_POST['newpassword']!='') {
+			if ($POD->currentUser()->get('authSecret') != md5($POD->currentUser()->get('email').@$_POST['oldpassword'])){
+				$POD->addMessage("Your Current Pass is wrong.");
+				
+			} else if (@$_POST['newpassword'] != @$_POST['conpassword']) {
+				$POD->addMessage("Your New Pass does not match Confirm.");
+				
+			} else {
+				$POD->currentUser()->set('password',$_POST['newpassword']);
+				$POD->currentUser()->save();
+				
+				if (!$POD->currentUser()->success()) {
+					$POD->addMessage($POD->currentUser()->error());
+				} else {
+					$POD->addMessage("Your password has been changed.");
+				}
+
+				$days = 15;			
+				setcookie('pp_auth',$POD->currentUser()->get('authSecret'),time()+(86400 * $days),"/");
+			}
 	}
 
 
