@@ -20,7 +20,7 @@ $wiki = $POD->getContent(array('type'=>'wiki', 'id'=>$wikiID));
 				<header>
 					<span class="content_meta">
 						<span class="content_author"><? $doc->author()->permalink();?></span> edited (<span class="content_time"><? echo $doc->write('timesince'); ?></span>)
-						<a href="<? echo  str_replace('api', 'index', $wiki->get('api')); ?>?title=<?$doc->write('headline');?>" title="<? $doc->write('headline'); ?>"><? $doc->write('headline'); ?></a> on <a href="<? $wiki->write('link'); ?>"><?$wiki->write('headline');?></a><br>
+						<a href="<? echo  str_replace('api', 'index', $wiki->get('api')); ?>?title=<?$doc->write('headline');?>" title="<? $doc->write('headline'); ?>"><? $doc->write('headline'); ?></a> on <a href="<? $wiki->permalink(); ?>"><?$wiki->write('headline');?></a><br>
 						<? if ($doc->get('body')) { 
 							echo "Summary: ";
 							$doc->write('body');
