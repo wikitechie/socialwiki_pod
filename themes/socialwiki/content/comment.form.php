@@ -3,7 +3,7 @@
 			<h3 id="reply">Leave a comment</h3>
 			<? $POD->currentUser()->output('avatar'); ?>
 			<div class="attributed_content">
-				<form method="post" id="add_comment" action="#addComment" data-comments="#comments" data-content="<?= $doc->id; ?>">
+				<form method="post"  dir="rtl" id="add_comment" action="#addComment" data-comments="#comments" data-content="<?= $doc->id; ?>">
 					<textarea name="comment" class="expanding" id="comment"></textarea>	
 					<input type="submit" value="Post" />
 				</form>

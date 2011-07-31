@@ -23,7 +23,9 @@
 			<span class="author"><? $comment->author()->write('nick'); ?></span> said, (<span class="post_time"><a href="#<? $comment->write('id'); ?> "><? echo $this->POD->timesince($comment->get('minutes')); ?></a></span>)
 			<a href="#reply" data-comment="<?= $comment->id; ?>" data-author="<?= htmlspecialchars($comment->author()->nick); ?>">Reply</a>
 		</span>
+		<div dir="rtl">
 		<? $comment->writeFormatted('comment') ?>
+		</div>
 	</div>
 	<div class="clearer"></div>
 </div>
