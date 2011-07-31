@@ -70,7 +70,7 @@
 					}				
 				} else if (isset($PARAMETERS['stub']) && (sizeof($PARAMETERS)==1)) {		
 					// load by unique stub
-					$this->getContentByStub($PARAMETERS['stub']);
+					$this->getContentByStub(urlencode($PARAMETERS['stub']));
 					if (!$this->success()) {
 						return;
 					}				
@@ -402,7 +402,8 @@
 			if (!$this->get('stub')) {
 				$stub = $this->get('headline');			
 				$stub = preg_replace("/\s+/","-",$stub);
-				$stub = preg_replace("/[^a-zA-Z0-9\-]/","",$stub);
+				$stub = urlencode(preg_replace("/[\/+]/","",$stub));
+				$stub = preg_replace("/[^a-zA-Z0-9\%:-]/","",$stub);
 				$stub = strtolower($stub);
 			} else {
 				$stub = $this->get('stub');
