@@ -10,8 +10,7 @@
 *
 * Include this file into any other PHP file to access PeoplePods functionality
 /**********************************************/
-
-
+	error_reporting(E_ALL & ~(E_STRICT|E_NOTICE));
 	include("lib/Core.php"); 
 		
 ?>
