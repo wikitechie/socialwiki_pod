@@ -13,8 +13,8 @@
 /**********************************************/
 
 $wikiID = $doc->get('wikiId');
-$POD->cacheclear($wiki);
 $wiki = $POD->getContent(array('type'=>'wiki', 'id'=>$wikiID));
+$POD->cacheclear($wiki);
 
 ?>	<li class="content_short wikiactivity content_<? $doc->write('type'); ?> <? if ($doc->get('isOddItem')) {?>odd<? } ?> <? if ($doc->get('isEvenItem')) {?>even<? } ?> <? if ($doc->get('isLastItem')) {?>last<? } ?> <? if ($doc->get('isFirstItem')) {?>first<? } ?>" id="content<? $doc->write('id'); ?>">	
 		<article class="attributed_content content_body">
