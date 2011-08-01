@@ -216,7 +216,7 @@
 			break;
 
 		case 'content.listComments':
-			requireAuthentication($POD);
+			//requireAuthentication($POD); we don't need this
 			$data['comments'] 	= $content->comments()->asArray();
 			$data['count']		= $content->count();
 			$POD->startBuffer();
