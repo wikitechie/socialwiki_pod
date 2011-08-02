@@ -14,7 +14,7 @@
 
 	include_once("content_type.php"); // this defines some variables for use within this pod
 	include_once("../../PeoplePods.php");
-	$POD = new PeoplePod(array('debug'=>1,'lockdown'=>'verified','authSecret'=>@$_COOKIE['pp_auth']));
+	$POD = new PeoplePod(array('debug'=>0,'lockdown'=>'verified','authSecret'=>@$_COOKIE['pp_auth']));
 	if (!$POD->libOptions("enable_contenttype_{$content_type}_add")) { 
 		header("Location: " . $POD->siteRoot(false));
 		exit;
