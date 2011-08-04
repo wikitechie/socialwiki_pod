@@ -98,7 +98,7 @@
 								complain(json.error);
 							} else {
 								complain('Commented deleted','success');
-								$("#comments_num"+content).html(json.comments.length + ' comments');
+								$("#comments_num"+json.parentContent).html(json.commentsCount+ ' comments');
 								$('#comment'+comment).hide();
 							}
 						

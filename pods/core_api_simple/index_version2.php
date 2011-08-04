@@ -385,6 +385,10 @@
 			if (!$comment->success()) { 
 				$data['error'] = $comment->error();
 			}
+			else{
+				$data['parentContent']=$parent->get('id');
+				$data['commentsCount']=count( $parent->comments()->asArray() );
+			}
 			echo results($data);
 			break;
 			
