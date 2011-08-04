@@ -67,7 +67,7 @@
 					</li>
 				</ul>
 				<!-- comments area  -->
-				<div id="comments_area<?= $doc->id;?>" style="display:none;" >
+				<div class="comments_area" style="display:none;" >
 				<div id="comments<?= $doc->id; ?>" ></div>
 				<? if ($this->POD->isAuthenticated()) { ?>
 					<div id="comment_form" >

@@ -51,7 +51,7 @@
 			var command = '';
 			var comment = $(this).children('[name=comment]').val();
 			var comments_div = $(this).attr('data-comments');
-
+			var content = $(this).attr('data-content');
 			$(this).children('[name=comment]').attr('disabled',true);
 			startSpinner();
 			if ($(this).attr('data-content')) {
@@ -71,6 +71,7 @@
 							$(el).children('[name=comment]').attr('disabled',false);
 							$(el).children('[name=comment]').val('');
 							$(comments_div).html(json.html);
+							$("#comments_num"+content).html(json.comments.length + ' comments');
 							complain('Comment added!','success');
 						}
 					
@@ -124,19 +125,19 @@
 								} else {
 									$(comments_div).html(json.html);
 								}
-						})
+						});
 					}
 				)
-				(this,content,comments_div)
+				(this,content,comments_div);
 				$(this).attr('data-active','shown');
 				$(this).html("Hide comments");
-				$("#comments_area"+content).show();
+				$("#content" + content + " .comments_area").show();
 			}
 			else
 			{
 				$(this).attr('data-active','hidden');
 				$(this).html("Show comments");
-				$("#comments_area"+content).hide();
+				$("#content" + content + " .comments_area").hide();
 				
 			}
 			return false;
