@@ -88,6 +88,7 @@
 			if (confirm('Delete this comment forever?')) {		
 				var command = '';
 				var comment = $(this).attr('data-comment');
+				var content = $(this).attr('data-content');
 				command = '/comment.delete?comment='+encodeURIComponent(comment);
 	
 				(
@@ -97,6 +98,7 @@
 								complain(json.error);
 							} else {
 								complain('Commented deleted','success');
+								$("#comments_num"+content).html(json.comments.length + ' comments');
 								$('#comment'+comment).hide();
 							}
 						
