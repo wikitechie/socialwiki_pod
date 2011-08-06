@@ -2,7 +2,7 @@
 
 	
 	// return an array of variables that should be captured in the settings screen
-	function sampleSetup() {
+	function wikiManagerSetup() {
 		return array(
 			'sampleSetting1'=>'Setting 1',
 			'sampleSetting2'=>'Setting 2',

@@ -1,6 +1,19 @@
 
 	$(window).ready(function() {
-	
+		
+		function updateAlerts(json){
+			if (json.error){
+				complain('cannot get Alerts');
+			}else if (json.count != 0){
+				var html = $('#alerts').html();
+				$('#alerts').html( json.html + html );
+				lastAlertId = json.alerts[0]['id'];
+			}
+			$.getJSON('update/'+lastAlertId,updateAlerts);
+		}
+		
+		$.getJSON('update/'+lastAlertId,updateAlerts);
+		
 		$('#system_messages').slideDown('fast',function() {
 			// want to do something after the system message appears?
 		});

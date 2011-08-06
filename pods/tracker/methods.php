@@ -1,32 +1,24 @@
 <?
 
-	
 	// return an array of variables that should be captured in the settings screen
 	function trackerSetup() {
 		return array(
-			'sampleSetting1'=>'Setting 1',
-			'sampleSetting2'=>'Setting 2',
+			'Tracking'=>'turn tracking on/off'
 		);
 	}
 
-	function trackerContentMethod($content) { 
-		echo 'This is output from $sampleContentMethod() called on a piece of content with the title "' . $content->headline . '"';
+	function JavaScriptInit($POD){
+		$alerts = $POD->getAlerts(array('id:gt'=>0))->asArray();
+		$lastId = $alerts[0]['id'];
+		echo "var lastAlertId = $lastId";
 	}
 
-	function trackerPersonMethod($person) { 
-		echo "trackerPersonMethod() called on " . $person->nick;	
+	PeoplePod::registerMethod('JavaScriptInit');
+	
+	function trackerInstall($POD) {
+	
 	}
 	
-		
-	Content::registerMethod('trackerContentMethod');
-	Person::registerMethod('trackerPersonMethod');
+	function trackerUninstall($POD) {
 	
-	Content::addDatabaseFields(array('sampleField'=>array()));
-	
-	function sampleInstall($POD) {
-		//$POD->executeSQL('alter table content add sampleField varchar(10)');
-	}
-	
-	function sampleUninstall($POD) {
-		//$POD->executeSQL('Alter table content drop sampleField');
 	}

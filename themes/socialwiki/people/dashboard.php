@@ -63,8 +63,9 @@
 				
 			}
 		?>	
-		
+		<div id="alerts">
 		<? $user->getAlerts()->output('output',null,null,null); ?>
+		</div>
 				
 		<? if (isset($msg)) { ?>	
 			<div class="info">

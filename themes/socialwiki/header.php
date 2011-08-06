@@ -46,7 +46,8 @@
 		var siteRoot = "<? $POD->siteRoot(); ?>";
 		var podRoot = "<? $POD->podRoot(); ?>";
 		var themeRoot = "<? $POD->templateDir(); ?>";
-		var API = siteRoot + "/api/2";		
+		var API = siteRoot + "/api/2";
+		<?php $POD->JavaScriptInit(); ?>		
 	</script>
 
 	<!-- HTML5 fix for IE 6-8 -->
