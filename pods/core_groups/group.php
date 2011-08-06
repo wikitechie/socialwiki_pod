@@ -133,10 +133,15 @@
 		
 		//socialwiki
 		if ($_GET['command'] == "addwiki") {
-			$template = "edit_group";
-		
+			$template = "edit_group";		
 			$wiki = $POD->getContent(array('id'=>$_POST['selected_wiki']));
-			$wiki->addFlag('track', $group);			
+			$wiki->addFlag('track', $group);
+		} 
+		if ($_GET['command'] == "removewiki") {
+			$template = "edit_group";		
+			$wiki = $POD->getContent(array('id'=>$_POST['selected_wiki']));
+			$wiki->write('headline');
+			$wiki->removeFlag('track', $group);
 		} 
 	} 
 	

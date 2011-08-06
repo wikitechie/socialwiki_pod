@@ -59,20 +59,22 @@
 				<input type="hidden" name="confirm" value="<? echo htmlspecialchars(md5($group->POD->currentUser()->get('memberSince'))); ?>" />
 		</form>
 		
-		<form method="post" action="<? $group->write('permalink'); ?>/addwiki">
-			<p class="input"><label>Wikiactivity</label>
-			<p class="form_text">Here you can choose which wikis your group members can enjoy!</p>
-			<p class="form_text"><ul>
+			<p class="input"><label>Wikiactivity</label></p><p class="form_text">Here you can choose which wikis your group members can enjoy!</p>
+			<p class="input"><label>Supported wikis:</label></p>
+			<p class="form_text"><table><tr><td>
 			<?	$wikis = $POD->getContents(array('type'=>'wiki'));	
 				foreach ($wikis as $wiki)
-					if($wiki->hasFlag('track', $group)) {
-						?><li><b><?
-						$wiki->write('headline');
-						?></b><br /> <?
+					if($wiki->hasFlag('track', $group)) {						
+						echo $wiki->get('headline');
+						?></td><td><form method="post" action="<? $group->write('permalink'); ?>/removewiki" class="valid"> 
+						<input type="hidden" name="id" value="<? $group->write('id'); ?>" />
+						<input type="hidden" name="selected_wiki" value="<? $wiki->write('id'); ?>" />
+						<input type=submit value="remove">
+						</form></tr> <?
 					}
-			?></ul></p>
-			
-			<b>Wiki Name</b>: 	
+			?></table></p>
+			<p class="input"><label>Add a wiki!</label>	</p>
+					<p class="form_text"><form method="post" action="<? $group->write('permalink'); ?>/addwiki" id="addwiki_group" class="valid">
 			<select name='selected_wiki'>
 				<?php foreach ($wikis as $wiki) { ?>
 					<option value=<?php $wiki->write('id'); ?> > <?php $wiki->write('headline'); ?> </option>
@@ -80,8 +82,9 @@
 			</select>
 			<input type="hidden" name="id" value="<? $group->write('id'); ?>" />
 			<input type = submit value="Go!">
-			
 			</p>
+			
+			
 		
 
 		
