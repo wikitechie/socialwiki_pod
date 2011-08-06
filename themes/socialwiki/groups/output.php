@@ -66,6 +66,7 @@
 			<b>About this group:</b>
 			<? $group->writeFormatted('description'); ?>
 		</div>
+		
 
 		<? if ($group->POD->isAuthenticated()) { ?>
 			<ul id="navigator">
@@ -79,7 +80,7 @@
 						$g->output('group_navigator'); 
 					}
 				?>
-				<li class="group_navigator"><a href="<? $group->POD->siteRoot(); ?>/groups">More Groups...</li>					
-			</ul>	
+				<li class="group_navigator"><a href="<? $group->POD->siteRoot(); ?>/groups">More Groups...</a></li>					
+			</ul>
 		<? } ?>	
 	</div>

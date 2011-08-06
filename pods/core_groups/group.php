@@ -136,8 +136,10 @@
 		if (isset($_GET['offset'])) {
 			$group->content()->getOtherPage($_GET['offset']);
 		}
-		$group->output($template);
+		
+	$group->output($template);
 
-	$POD->footer();	
+	$POD->footer();
+	
 	?>
 
