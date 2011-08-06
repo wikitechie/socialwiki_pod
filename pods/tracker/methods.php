@@ -9,7 +9,7 @@
 
 	function JavaScriptInit($POD){
 		$alerts = $POD->getAlerts(array('id:gt'=>0))->asArray();
-		if ($alerts->count() > 0)
+		if (count($alerts) > 0)
 			$lastId = $alerts[0]['id'];
 		else
 			$lastId = 0;
