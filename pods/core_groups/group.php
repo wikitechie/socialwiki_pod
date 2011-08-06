@@ -130,12 +130,21 @@
 				$POD->addMessage("ERROR! " . $group->error());
 			}
 		}
+		
+		//socialwiki
+		if ($_GET['command'] == "addwiki") {
+			$template = "edit_group";
+		
+			$wiki = $POD->getContent(array('id'=>$_POST['selected_wiki']));
+			$wiki->addFlag('track', $group);			
+		} 
 	} 
 	
 	$POD->header($group->get('groupname'));
 		if (isset($_GET['offset'])) {
 			$group->content()->getOtherPage($_GET['offset']);
 		}
+		
 		
 	$group->output($template);
 

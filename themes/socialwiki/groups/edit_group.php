@@ -15,6 +15,8 @@
 
 <?
 	$membership = $group->isMember($group->POD->currentUser());
+	$wikis = $POD->getContents(array('type'=>'wiki'));
+
 ?>
 <? if ($membership == "owner" || $membership == "manager") { ?>
 	<script type="text/javascript">
@@ -55,7 +57,37 @@
 				will be visible only to their author.<? } ?><input type="submit" value="Delete group" /></p>
 				<input type="hidden" name="id" value="<? $group->write('id'); ?>" />
 				<input type="hidden" name="confirm" value="<? echo htmlspecialchars(md5($group->POD->currentUser()->get('memberSince'))); ?>" />
-		</form>		
+		</form>
+		
+		<form method="post" action="<? $group->write('permalink'); ?>/addwiki">
+			<p class="input"><label>Wikiactivity</label>
+			<p class="form_text">Here you can choose which wikis your group members can enjoy!</p>
+			<p class="form_text"><ul>
+			<?	$wikis = $POD->getContents(array('type'=>'wiki'));	
+				foreach ($wikis as $wiki)
+					if($wiki->hasFlag('track', $group)) {
+						?><li><b><?
+						$wiki->write('headline');
+						?></b><br /> <?
+					}
+			?></ul></p>
+			
+			<b>Wiki Name</b>: 	
+			<select name='selected_wiki'>
+				<?php foreach ($wikis as $wiki) { ?>
+					<option value=<?php $wiki->write('id'); ?> > <?php $wiki->write('headline'); ?> </option>
+				<?php } ?>
+			</select>
+			<input type="hidden" name="id" value="<? $group->write('id'); ?>" />
+			<input type = submit value="Go!">
+			
+			</p>
+		
+
+		
+		</form>
+
+		
 	</div>
 <? } // if is member ?>
 	
