@@ -9,7 +9,10 @@
 	if (isset($_GET['id'])) { 
 		$id=$_GET['id'];	
 	}
-	$alerts = $POD->getAlerts(array('id:gt' => $id));
+	$alerts = $POD->getAlerts(array(
+		'id:gt' => $id,
+		'targetUserId'=>$POD->currentUser()->get('id')
+	));
 	$secCount = 0;
 	while ($alerts->count() == 0)
 	{
@@ -21,8 +24,9 @@
 			exit;
 		}
 		$alerts = $POD->getAlerts(array(
-				'id:gt' => $id)
-		);
+			'id:gt' => $id,
+			'targetUserId'=>$POD->currentUser()->get('id')
+		));
 	}
 	
 	$data = array();
