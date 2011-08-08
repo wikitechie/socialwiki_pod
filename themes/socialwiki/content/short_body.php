@@ -62,9 +62,6 @@
 							<a href="#deleteContent" data-content="<?= $doc->id; ?>">Delete</a>
 						</li>
 					<? } ?>
-					<li>
-						<a href="#listComments" data-active="hidden" data-content="<?= $doc->id; ?>" data-comments="#comments<?= $doc->id; ?>" >Show Comments</a>
-					</li>
 				</ul>
 				<? $doc->output('comment_area'); ?>
 

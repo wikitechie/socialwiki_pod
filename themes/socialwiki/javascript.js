@@ -33,7 +33,14 @@
 				o.val(o.attr('data-default'));
 			}
 		});
-
+		$('.content_body').hover(
+				function(){
+					$(this).find('.appearOnHover').slideDown(200);
+				},
+				function(){
+					$(this).find('.appearOnHover').slideUp(200);
+				}
+		);
 		$('.repairField').focus(function() { 
 			
 			o = $(this);
@@ -101,7 +108,6 @@
 			if (confirm('Delete this comment forever?')) {		
 				var command = '';
 				var comment = $(this).attr('data-comment');
-				var content = $(this).attr('data-content');
 				command = '/comment.delete?comment='+encodeURIComponent(comment);
 	
 				(
@@ -124,37 +130,24 @@
 		});
 
 		$('a[href="#listComments"]').live('click',function(){
-			var active = $(this).attr('data-active');
 			var comments_div = $(this).attr('data-comments');
 			var content = $(this).attr('data-content');
-			if (active=='hidden')
-			{
-				var command = '';
-				command = '/content.listComments?content='+encodeURIComponent(content);
-				(
-					function (el,content,comments_div)
-					{
-						$.getJSON(API+command,function(json) {
-							if (json.error) {
-									complain(json.error);
-								} else {
-									$(comments_div).html(json.html);
-								}
-						});
-					}
-				)
-				(this,content,comments_div);
-				$(this).attr('data-active','shown');
-				$(this).html("Hide comments");
-				$("#content" + content + " .comments_area").show();
-			}
-			else
-			{
-				$(this).attr('data-active','hidden');
-				$(this).html("Show comments");
-				$("#content" + content + " .comments_area").hide();
-				
-			}
+			var command = '';
+			command = '/content.listComments?content='+encodeURIComponent(content);
+			(
+				function (el,content,comments_div)
+				{
+					$.getJSON(API+command,function(json) {
+						if (json.error) {
+								complain(json.error);
+							} else {
+								$(comments_div).html(json.html);
+							}
+					});
+				}
+			)(this,content,comments_div);
+			$("#content" + content + " .comments_area").show();
+			$(this).hide();
 			return false;
 			
 		});

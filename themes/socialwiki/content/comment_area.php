@@ -13,8 +13,17 @@
 ?>
 		
 				<!-- comments area  -->
-				<div class="comments_area" style="display:none;" >
-				<div id="comments<?= $doc->id; ?>" ></div>
+				<div class="comments_area appearOnHover" style="display:none;" >
+				<div id="comments<?= $doc->id; ?>" >
+					<center>Most Recent Comments</center>
+					<?php 
+						$mostRecent = $POD->getComments(array('contentId'=>$doc->get('id')),'date DESC',2,0);
+						$mostRecent->output('comment');
+					?>
+				</div>
+				<ul class='content_options'>
+				<a class='content_option' href="#listComments" data-content="<?= $doc->id; ?>" data-comments="#comments<?= $doc->id; ?>" >Show Comments</a>
+				</ul>
 				<? if ($this->POD->isAuthenticated()) { ?>
 					<div id="comment_form" >
 					<h3 id="reply">Leave a comment</h3>
