@@ -9,7 +9,7 @@ footer,header,hgroup,menu,nav,section {
 
 	body { background: #F0F0F0; color: #333; padding: 0px; margin: 0px; font-family: Helvetica; 
 	background-image: url("img/bg.gif"); }	
-	p { line-height: 150%; }
+	p { line-height: 100%; }
 	
 /* Link Styles */	
 	
@@ -217,7 +217,7 @@ footer,header,hgroup,menu,nav,section {
 	.content_short .content_body header { border:0px; margin:0px;padding:0px;}
 	.content_short .content_body header h1 { font-size:18px; }	
 	.content_short .content_body p.content_image img { float: left; margin-right: 10px; border:0px; }
-	.content_short .content_body ul.content_options { list-style-type: none; margin: 0px; padding: 0px; font-size:13px; border-top:1px solid #CCC;}
+	.content_short .content_body ul.content_options { list-style-type: none; margin: 0px; padding: 0px; font-size:10px; border-top:1px solid #CCC;}
 	.content_short .content_body ul.content_options li { display: inline-block; padding: 10px; padding-left: 0px;}
 	.content_short .content_body ul.content_options li.delete_option a { color: #CCC; } 
 
@@ -276,9 +276,9 @@ footer,header,hgroup,menu,nav,section {
 	
 	.comment { margin-bottom:3px; } 
 	.comment:last-child { border-bottom:1px solid #CCC; padding-bottom:10px; }
-	.comment span.byline { font-size: 12px; font-weight: bold; display: block; }
+	.comment span.byline { font-size: 10px; font-weight: bold; display: block; }
 	.comment span.remove_comment { float: right; }  
-	.comment p {  line-height: 30%; } 	
+	.comment p {  line-height: 100%; font-size:9pt } 	
 	.comment_body {  padding: 4px; background: #FFF; -moz-border-radius: 4px; -webkit-border-radius: 4px; }
 
 /* Profile Styles */
