@@ -5,7 +5,7 @@
 		'this pod let manage your wikis ',		// this is the description of the pod. it shows up in the command center.
 		array(
 			'^wikiman$'=>'sw_wikimanager/handler.php',		// set up the /sample url to handle requets
-			'^wikiupdate'=>'sw_updater/update.php',	// set up the /sample/* to handle requets
+			'^wikiupdate$'=>'sw_wikimanager/update.php',	// set up the /sample/* to handle requets
 		),
 		array(
 			'sample_pod_variable'=>true,				// if this pod is enabled, value can be accessed via $POD->libOptions('sample_pod_variable');
