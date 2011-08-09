@@ -18,7 +18,7 @@
 	{
 		usleep(1000000 * 1);
 		$secCount++;
-		if ($secCount >=3)
+		if ($secCount >=30)
 		{
 			echo json_encode(array('count'=>0));
 			exit;
