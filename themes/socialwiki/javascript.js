@@ -35,10 +35,15 @@
 		});
 		$('.content_body').hover(
 				function(){
-					$(this).find('.appearOnHover').slideDown(200);
+					block =  $(this).find('.appearOnHover');
+					if (block[0] !=null)
+					{
+						$('.content_body .appearOnHover').not(block).slideUp(200);
+						block.slideDown(200);
+					}
 				},
 				function(){
-					$(this).find('.appearOnHover').slideUp(200);
+					//$(this).find('.appearOnHover').slideUp(200);
 				}
 		);
 		$('.repairField').focus(function() { 
