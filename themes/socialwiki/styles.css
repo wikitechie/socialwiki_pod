@@ -185,7 +185,8 @@ footer,header,hgroup,menu,nav,section {
 
 	.person_avatar { width: 60px; margin-right:10px; float: left; overflow: }
 	.person_avatar a { display:block; text-align:center; }
-	.person_avatar img { border:2px solid ghostwhite;  border-radius:10px; height: 33px; } 
+	.person_avatar img { border:2px solid ghostwhite;  border-radius:10px; }
+	.comments_area .person_avatar:not(#comment_form) img {height: 31px;} 
 	
 	
 	.attributed_content { margin-left:70px; }
