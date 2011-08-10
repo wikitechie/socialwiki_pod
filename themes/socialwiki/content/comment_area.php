@@ -15,7 +15,7 @@
 				<!-- comments area  -->
 				<div class="comments_area appearOnHover" style="display:none;" >
 				<div id="comments<?= $doc->id; ?>" >
-					<center>Most Recent Comments</center>
+					<p>Most Recent Comments :</p>
 					<?php 
 						$mostRecent = $POD->getComments(array('contentId'=>$doc->get('id')),'date DESC',2,0);
 						$mostRecent->output('comment');

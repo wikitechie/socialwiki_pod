@@ -9,7 +9,7 @@ footer,header,hgroup,menu,nav,section {
 
 	body { background: #F0F0F0; color: #333; padding: 0px; margin: 0px; font-family: Helvetica; 
 	background-image: url("img/bg.gif"); }	
-	p { line-height: 100%; }
+	p { line-height: 100%; font-size:11px }
 	
 /* Link Styles */	
 	
@@ -185,7 +185,7 @@ footer,header,hgroup,menu,nav,section {
 
 	.person_avatar { width: 60px; margin-right:10px; float: left; overflow: }
 	.person_avatar a { display:block; text-align:center; }
-	.person_avatar img { border:2px solid ghostwhite;  border-radius:10px;  } 
+	.person_avatar img { border:2px solid ghostwhite;  border-radius:10px; height: 33px; } 
 	
 	
 	.attributed_content { margin-left:70px; }
@@ -278,7 +278,7 @@ footer,header,hgroup,menu,nav,section {
 	.comment:last-child { border-bottom:1px solid #CCC; padding-bottom:10px; }
 	.comment span.byline { font-size: 10px; font-weight: bold; display: block; }
 	.comment span.remove_comment { float: right; }  
-	.comment p {  line-height: 100%; font-size:9pt } 	
+	.comment p {  line-height: 100%; font-size:9pt ; margin-bottom: 1pt ;margin-top: 1pt } 	
 	.comment_body {  padding: 4px; background: #FFF; -moz-border-radius: 4px; -webkit-border-radius: 4px; }
 
 /* Profile Styles */
