@@ -43,7 +43,7 @@
 					<a href="#"  id="add_tags" onclick="return togglePostOption('tags');">+ Tags</a>
 				</li>			
 			</ul>
-			<textarea name="headline" id="headline" class="text expanding required" required><? $doc->htmlspecialwrite('headline'); ?></textarea>
+			<textarea name="headline" id="headline" class="text required" required><? $doc->htmlspecialwrite('headline'); ?></textarea>
 
 		<div class="clearer"></div>
 		<p class="post" id="post_body">
