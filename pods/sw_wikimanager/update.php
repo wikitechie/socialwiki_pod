@@ -13,7 +13,9 @@ include_once("../../lib/Core.php");
 
 // only allow logged in people
 $POD = new PeoplePod();
-
+$POD->changeActor(array(
+'stub'=>'admin'
+));
 $POD->header();
 		define('WIKI_USERNAME','');
 		define('WIKI_PASSWORD','');

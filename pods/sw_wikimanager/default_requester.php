@@ -3,8 +3,7 @@
 	
 include_once("../../lib/Core.php");
 
-// only allow logged in people
-$POD = new PeoplePod();
+// $POD is already defined
 
 	if (defined('WIKI_USERNAME')) 
 	{
